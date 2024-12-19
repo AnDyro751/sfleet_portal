@@ -12,7 +12,7 @@ Tailwind CSS y Hotwired.
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/andyro/sfleet_portal.git
+git clone https://github.com/AnDyro751/sfleet_portal.git
 ```
 
 2. Ingresar al directorio del proyecto:
@@ -39,7 +39,7 @@ docker create --name sfleet-portal-container -v `pwd`:/sfleet_portal -p 3000:300
 docker start sfleet-portal-container
 ```
 
-6. Editar los secrets.
+5. Editar los secrets.
 
 ```bash
 docker exec -it sfleet-portal-container EDITOR="nano --wait" rails credentials:edit
@@ -61,21 +61,21 @@ secret_key_base: f976c2c43a5131e20a1f8d3b8b129567c63c9e15e4f7e36cb7736b7109ad073
 devise_jwt_secret_key: 5b377e0b3d702c63d859f92f8c5dbd99fd404150f671065b98a949ff7aebf1658f2eefb38070cd42ae86bfc85751a2ccb9e3a5cd422597d9d37af027eebbd9ef
 ```
 
-7. Correr las migraciones:
+6. Correr las migraciones:
 
 ```bash
 docker exec -it sfleet-portal-container rails db:migrate
 ```
 
-6. Correr las seeders:
+7. Correr las seeders:
 
 ```bash
 docker exec -it sfleet-portal-container rails db:seed
 ```
 
-7. Acceder a la aplicación en http://localhost:3000/users/sign_in
+8. Acceder a la aplicación en http://localhost:3000/users/sign_in
 
-8. Usar el email `admin@sfleet.com` y la contraseña `12345678` para iniciar sesión.
+9. Usar el email `admin@sfleet.com` y la contraseña `12345678` para iniciar sesión.
 
 # API
 
