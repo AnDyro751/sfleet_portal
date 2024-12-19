@@ -1,0 +1,30 @@
+
+
+<div class="container mx-auto px-4 space-y-8">
+  <%= render "cars/menu" %>
+
+  <div class="bg-base-100 shadow-xl rounded-lg p-6 mb-6">
+    <%= render @car %>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <h2 class="text-2xl font-bold">Servicios de mantenimiento</h2>
+      <%= link_to "Añadir mantenimiento", 
+          new_maintenance_service_path(car_id: @car.id), 
+          data: { turbo_frame: "create_maintenance_service_frame" },
+          class: "btn btn-primary no-animation"
+    %>
+  </div>
+
+  <div id="maintenance_services_list">
+      <% if @maintenance_services.any? %>
+      <%= render "maintenance_services/list", maintenance_services: @maintenance_services %>
+    <% else %>
+      <p class="text-center text-gray-500">No hay servicios de mantenimiento para este coche.</p>
+    <% end %>
+  </div>
+</div>
+
+<turbo-frame id="create_maintenance_service_frame">
+</turbo-frame>
+

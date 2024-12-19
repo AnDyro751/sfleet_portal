@@ -1,0 +1,16 @@
+<dialog 
+  data-controller="modal"
+  id="modal_create_maintenance_service" 
+  class="modal modal-open"
+>
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">
+      <%= @maintenance_service.new_record? ? "Añadir mantenimiento" : "Editar mantenimiento" %>
+    </h3>
+    <p class="py-4">
+      <%= @maintenance_service.new_record? ? "Añade un nuevo servicio de mantenimiento para este vehículo." : "Edita el servicio de mantenimiento." %>
+    </p>
+
+    <%= render "maintenance_services/form", maintenance_service: @maintenance_service %>
+  </div>
+</dialog>

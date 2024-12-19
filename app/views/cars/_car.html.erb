@@ -1,0 +1,18 @@
+<div id="<%= dom_id car %>" class="card-body">
+  <div class="flex flex-col gap-4">
+    <div>
+      <span class="font-bold"><%= I18n.t("activerecord.attributes.car.plate_number") %>:</span>
+      <span class="badge badge-neutral"><%= car.plate_number %></span>
+    </div>
+
+    <div>
+      <span class="font-bold"><%= I18n.t("activerecord.attributes.car.model_number") %>:</span>
+      <span class="badge badge-neutral"><%= car.model_number %></span>
+    </div>
+
+    <div>
+      <span class="font-bold"><%= I18n.t("activerecord.attributes.car.year") %>:</span>
+      <span class="badge badge-neutral"><%= car.year %></span>
+    </div>
+  </div>
+</div>

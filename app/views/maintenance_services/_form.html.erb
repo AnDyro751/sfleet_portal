@@ -1,0 +1,37 @@
+<%= form_with(model: [@car, @maintenance_service], local: true, url: @maintenance_service.new_record? ? maintenance_services_path : maintenance_service_path(@maintenance_service), class: "contents") do |form| %>
+  <% if @maintenance_service.errors.any? %>
+    <div id="error_explanation" class="alert alert-error my-4">
+      <ul>
+        <% @maintenance_service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <input type="hidden" name="car_id" value="<%= params[:car_id] %>">
+
+  <div class="form-control w-full">
+    <%= form.label :description, "Descripción", class: "label" %>
+    <%= form.text_area :description, rows: 4, class: "textarea textarea-bordered w-full", placeholder: "Ingrese la descripción del servicio" %>
+  </div>
+
+  <div class="form-control w-full">
+    <%= form.label :status, "Estado", class: "label" %>
+    <%= form.select :status, 
+        [['Pendiente', :pending], ['En progreso', :in_progress], ['Completado', :completed]], 
+        { prompt: "Seleccione el estado del servicio" }, 
+        class: "select select-bordered w-full" %>
+  </div>
+
+  <div class="form-control w-full">
+    <%= form.label :date, "Fecha", class: "label" %>
+    <%= form.date_field :date, class: "input input-bordered w-full", placeholder: "Seleccione la fecha del servicio" %>
+  </div>
+
+  <div class="mt-6 flex justify-end gap-2">
+    <button class="btn btn-ghost" data-action="modal#close">Cancelar</button>
+    <%= form.submit (@maintenance_service.new_record? ? "Crear servicio" : "Actualizar servicio"), 
+        class: "btn btn-primary" %>
+  </div>
+<% end %>

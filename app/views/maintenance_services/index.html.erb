@@ -1,0 +1,21 @@
+<div class="container mx-auto p-4">
+
+  <% content_for :title, "Servicios de mantenimiento" %>
+
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-4xl font-bold">Servicios de mantenimiento</h1>
+  </div>
+
+  <%= render "maintenance_services/search" %>
+
+  <div id="maintenance_services_list">
+    <% if @maintenance_services.any? %>
+      <%= render "maintenance_services/list", maintenance_services: @maintenance_services, pagy: @pagy %>
+    <% else %>
+      <p class="text-center text-gray-500">No hay servicios de mantenimiento para este coche.</p>
+    <% end %>
+  </div>
+</div>
+
+<turbo-frame id="create_maintenance_service_frame">
+</turbo-frame>

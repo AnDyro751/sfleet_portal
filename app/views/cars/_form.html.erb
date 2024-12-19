@@ -1,0 +1,30 @@
+<%= form_with(model: car, class: "card w-96 bg-base-100 shadow-xl p-4 mx-auto") do |form| %>
+  <% if car.errors.any? %>
+    <div class="alert alert-error mb-4">
+      <ul class="list-disc list-inside">
+        <% car.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-control w-full max-w-xs mb-4">
+    <%= form.label :plate_number, class: "label" %>
+    <%= form.text_field :plate_number, class: "input input-bordered w-full max-w-xs", placeholder: "Ingrese el número de placa" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs mb-4">
+    <%= form.label :model_number, class: "label" %>
+    <%= form.text_field :model_number, class: "input input-bordered w-full max-w-xs", placeholder: "Ingrese el número de modelo" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs mb-4">
+    <%= form.label :year, class: "label" %>
+    <%= form.number_field :year, class: "input input-bordered w-full max-w-xs", min: 1900, max: Time.current.year, step: 1, placeholder: "Ingrese el año" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary w-full" %>
+  </div>
+<% end %>

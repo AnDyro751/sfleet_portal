@@ -1,0 +1,5 @@
+<%= search_form_for @q, url: maintenance_services_path, class: "flex justify-end gap-2 mb-4" do |f| %>
+  <%= f.search_field :car_plate_number_cont, placeholder: "Buscar por matrícula", class: "input input-bordered" %>
+  <%= f.select :status_eq, MaintenanceService.statuses.keys.map { |status| [I18n.t("activerecord.attributes.maintenance_service.status_options.#{status}"), status.to_sym] }, { include_blank: "Todos" }, class: "input input-bordered" %>
+  <%= f.submit "Buscar", class: "btn btn-primary" %>
+<% end %>

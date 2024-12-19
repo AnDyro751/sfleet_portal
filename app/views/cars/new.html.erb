@@ -1,0 +1,13 @@
+<% content_for :title, "Nuevo coche" %>
+
+<div class="w-full">
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-bold">Nuevo coche</h1>
+  </div>
+
+  <%= render "form", car: @car %>
+
+  <div class="mt-4">
+    <%= link_to "Volver a coches", cars_path, class: "btn btn-ghost" %>
+  </div>
+</div>

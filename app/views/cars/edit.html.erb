@@ -1,0 +1,12 @@
+<% content_for :title, "Editar vehículo" %>
+
+<div class="flex flex-col items-center justify-center p-4 mx-auto">
+  <h1 class="text-3xl font-bold mb-8">Editar vehículo</h1>
+
+  <%= render "form", car: @car %>
+
+  <div class="mt-6 flex gap-4">
+    <%= link_to "Ver este vehículo", @car, class: "btn btn-primary" %>
+    <%= link_to "Volver a vehículos", cars_path, class: "btn btn-ghost" %>
+  </div>
+</div>

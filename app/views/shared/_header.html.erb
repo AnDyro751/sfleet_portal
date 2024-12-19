@@ -1,0 +1,21 @@
+<header
+    class="bg-transparent text-gray-900 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm h-16 justify-center align-center">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <h1 class="text-2xl font-bold tracking-wide">SFleet</h1>
+        </div>
+        <nav>
+            <ul class="flex space-x-8">
+                <li>
+                    <%= link_to I18n.t("activerecord.models.car.other"), cars_path, class: "hover:text-gray-900 transition duration-300 font-light relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300" %>
+                </li>
+                <li>
+                    <%= link_to "Servicios de mantenimiento", maintenance_services_path, class: "hover:text-gray-900 transition duration-300 font-light relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300" %>
+                </li>
+                <li>
+                    <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "text-red-500 hover:text-red-400" %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

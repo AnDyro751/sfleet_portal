@@ -1,0 +1,22 @@
+<tr id="<%= dom_id(maintenance_service) %>">
+  <td>
+    <%= maintenance_service.description.truncate(50) %>
+  </td>
+  <td>
+    <%= maintenance_service.date %>
+  </td>
+  <td>
+    <%= maintenance_service_status_badge(maintenance_service.status) %>
+  </td>
+  <td class="flex justify-end space-x-2">
+    <%= link_to "Editar", edit_maintenance_service_path(maintenance_service), 
+        data: { turbo_frame: "create_maintenance_service_frame" },
+        class: "btn btn-primary" %>
+    <%= button_to maintenance_service_path(maintenance_service), method: :delete, class: "btn btn-error no-animation", data: { turbo_confirm: "¿Estás seguro?" } do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        Eliminar
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sfleet_development
+      MYSQL_USER: password
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:7
+    restart: always
+    ports:
+      - "6379:6379"
+
+  app:
+    build: .
+    restart: always
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USER: password
+      DATABASE_PASSWORD: password
+      REDIS_URL: redis://redis:6379/1
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    command: [ "rails", "server", "-b", "0.0.0.0" ]
+
+volumes:
+  mysql_data:

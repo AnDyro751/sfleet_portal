@@ -1,0 +1,28 @@
+<div class="flex justify-center space-y-8 flex-col">
+    <div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <div class="overflow-x-auto w-full" >
+      <table class="table table-zebra">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th class="text-right">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% maintenance_services.each do |maintenance_service| %>
+           <%= render maintenance_service, maintenance_service: maintenance_service %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center">
+  <%== pagy_nav(@pagy) %>
+</div>
+</div>
